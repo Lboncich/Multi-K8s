@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: fibcalclukeboncich-com-tls
+spec:
+  secretName: fibcalclukeboncich-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: fibcalclukeboncich.com
+  dnsNames:
+   - fibcalclukeboncich.com
+   - www.fibcalclukeboncich.com
+   acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+         - fibcalclukeboncich.com
+         - www.fibcalclukeboncich.com
+
